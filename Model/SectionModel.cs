@@ -12,9 +12,9 @@ namespace resume_mixer.Models
         
         public string Description {get;set;}
         
-        public string [] Relations {get;set;}
+        public string[] Relations {get;set;}
         
-        public string Language {get;set;}
+        public string [] Language {get;set;}
         
         public string [] Architecture {get;set;}
         
