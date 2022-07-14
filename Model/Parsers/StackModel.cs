@@ -1,8 +1,8 @@
 using System;
 
-namespace resume_mixer.Models
+namespace resume_mixer.Models.Parser
 {
-    public class StaskModel
+    public class StackModel
     {
         public string[] Language {get;set;}
         

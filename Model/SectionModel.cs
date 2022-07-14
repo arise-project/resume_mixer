@@ -1,10 +1,11 @@
 using System;
+using resume_mixer.Models.Parser;
 
 namespace resume_mixer.Models
 {
     public class SectionModel
     {
-        public CompanyModel {get;set;}
+        public EmployerModel Employer {get;set;}
         
         public DateTime From {get;set;}
         

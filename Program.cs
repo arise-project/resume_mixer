@@ -1,4 +1,11 @@
 ﻿using System;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
+using resume_mixer.Config;
+using resume_mixer.Models.Parser;
+using resume_mixer.Renderer;
 
 namespace resume_mixer
 {
@@ -17,14 +24,14 @@ namespace resume_mixer
         Host.CreateDefaultBuilder(args)
             .ConfigureHostConfiguration(configuration =>
             {
-                configuration....;
-            });
+                configuration.AddEnvironmentVariables();
+            })
             .ConfigureServices((hostContext, services) =>
             {
-                var myConfigurationSection = configuration.GetSection("app");
+                //var section = configuration.GetSection("app");
 
-                services.AddSingleton<IValidateOptions<AppOptions>, AppOptionsValidator>();
-                services.Configure<AppOptions>(myConfigurationSection);
+                //services.AddSingleton<IValidateOptions<AppOptions>, AppOptionsValidator>();
+                //services.Configure<AppConfiguration>(section);
             });
 
 
@@ -38,12 +45,12 @@ namespace resume_mixer
                 .AddEnvironmentVariables()
                 .Build();
 
-            sc.AddSingleton(configuration);
+            sc.AddSingleton(config);
 
             IConfigurationSection appConfigSection = config.GetSection("app");
 
-            sc.AddSingleton<IValidateOptions<AppOptions>, AppOptionsValidator>();
-            sc.Configure<AppOptions>(appConfigSection);
+            //sc.AddSingleton<IValidateOptions<AppConfiguration>, AppOptionsValidator>();
+            sc.Configure<AppConfiguration>(appConfigSection);
 
             var appConfig = sp.GetService<IOptions<AppConfiguration>>();
         }

@@ -1,8 +1,8 @@
 using System;
 
-namespace resume_mixer
+namespace resume_mixer.Renderer
 {
-    public MdRenderer
+    public class SectionRenderer
     {
     	public void Render()
     	{

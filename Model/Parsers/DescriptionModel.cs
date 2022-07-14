@@ -4,7 +4,7 @@ namespace resume_mixer.Models.Parser
 {
     public class DescriptionModel
     {
-        public CompanyModel Employee {get;set;}
+        public EmployerModel Employer {get;set;}
         
         public string Common {get;set;}
     }

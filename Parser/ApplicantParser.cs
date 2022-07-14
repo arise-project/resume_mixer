@@ -1,17 +1,20 @@
 using System;
+using resume_mixer.Models.Parser;
+using Microsoft.Extensions.Options;
+using resume_mixer.Config;
 
-namespace resume_mixer
+namespace resume_mixer.Parser
 {
     public class ApplicantParser
     {
-    	public ApplicantParser(Options<AppConfiguration> options)
+    	public ApplicantParser(IOptions<AppConfiguration> options)
     	{
     		
     	}
     	
-    	public ApplicantnModel Parse()
+    	public ApplicantModel Parse()
     	{
-    		
+    		return null;
     	}
     }
 }

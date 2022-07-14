@@ -1,17 +1,12 @@
+using Microsoft.Extensions.Options;
+
 namespace resume_mixer.Config
 {
-    public class AppOptionsValidator : IValidateOptions<AppOptions>
+    public class AppOptionsValidator
     {
-        public ValidateOptionsResult Validate(string name, AppOptions options)
+        public bool Validate(IOptions<AppConfiguration> options)
         {
-            IList<string> validationFailures = new List<string>();
-
-            if (string.IsNullOrEmpty(options.Foo))
-                validationFailures.Add("Foo is required.");
-
-            return validationFailures.Any()
-            ? ValidateOptionsResult.Fail(validationFailures)
-            : ValidateOptionsResult.Success;
+            return true;
         }
     }
 }
