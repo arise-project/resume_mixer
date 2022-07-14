@@ -1,6 +1,6 @@
 using System;
 
-namespace resume_mixer
+namespace resume_mixer.Config
 {
     public class AppConfiguration
     {
