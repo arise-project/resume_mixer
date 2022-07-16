@@ -4,9 +4,9 @@ namespace resume_mixer.Renderer
 {
     public class AssemblyRenderer
     {
-    	public void Render()
-    	{
-    		
-    	}
+        public void Render()
+        {
+
+        }
     }
 }

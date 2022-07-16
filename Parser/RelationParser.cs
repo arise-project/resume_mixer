@@ -7,14 +7,14 @@ namespace resume_mixer.Parser
 {
     public class RelationParser
     {
-    	public RelationParser(IOptions<AppConfiguration> options)
-    	{
-    		
-    	}
-    	
-    	public RelationModel Parse()
-    	{
-    		return null;
-    	}
+        public RelationParser(IOptions<AppConfiguration> options)
+        {
+
+        }
+
+        public RelationModel Parse()
+        {
+            return null;
+        }
     }
 }

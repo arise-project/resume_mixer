@@ -13,31 +13,26 @@ namespace resume_mixer
     {
         static void Main(string[] args)
         {
-        	Console.WriteLine("resume mixer");
-            ConfigureServices();
+            Console.WriteLine("resume mixer");
             CreateHostBuilder(args).Build().Run();
 
             Console.WriteLine("done");
         }
 
-         public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureHostConfiguration(configuration =>
-            {
-                configuration.AddEnvironmentVariables();
-            })
-            .ConfigureServices((hostContext, services) =>
-            {
-                //var section = configuration.GetSection("app");
-
-                //services.AddSingleton<IValidateOptions<AppOptions>, AppOptionsValidator>();
-                //services.Configure<AppConfiguration>(section);
-            });
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+       Host.CreateDefaultBuilder(args)
+           .ConfigureHostConfiguration(configuration =>
+           {
+               configuration.AddEnvironmentVariables();
+           })
+           .ConfigureServices((hostContext, services) =>
+           {
+               ConfigureServices(services);
+           });
 
 
-        private static void ConfigureServices()
+        private static void ConfigureServices(IServiceCollection sc)
         {
-            IServiceCollection sc = new ServiceCollection();
             IServiceProvider sp = sc.BuildServiceProvider();
 
             IConfiguration config = new ConfigurationBuilder()

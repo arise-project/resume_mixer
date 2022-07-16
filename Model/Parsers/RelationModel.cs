@@ -4,6 +4,6 @@ namespace resume_mixer.Models.Parser
 {
     public class RelationModel
     {
-        public string Id {get;set;}
+        public string Id { get; set; }
     }
 }

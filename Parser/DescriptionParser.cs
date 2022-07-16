@@ -7,14 +7,14 @@ namespace resume_mixer.Parser
 {
     public class DescriptionParser
     {
-    	public DescriptionParser(IOptions<AppConfiguration> options)
-    	{
-    		
-    	}
-    	
-    	public DescriptionModel Parse()
-    	{
-    		return null;
-    	}
+        public DescriptionParser(IOptions<AppConfiguration> options)
+        {
+
+        }
+
+        public DescriptionModel Parse()
+        {
+            return null;
+        }
     }
 }
