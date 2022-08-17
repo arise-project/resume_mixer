@@ -7,7 +7,7 @@ namespace resume_mixer.Parser
 {
     public class DescriptionParser
     {
-        public DescriptionParser(IOptions<AppConfiguration> options)
+        public DescriptionParser(IOptions<AppConfiguration> o)
         {
 
         }

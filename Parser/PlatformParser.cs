@@ -5,14 +5,14 @@ using resume_mixer.Config;
 
 namespace resume_mixer.Parser
 {
-    public class KeywordParser
+    public class PlatformParser
     {
-        public KeywordParser(IOptions<AppConfiguration> o)
+        public StackParser(IOptions<AppConfiguration> o)
         {
 
         }
 
-        public KeywordModel Parse()
+        public StackModel Parse()
         {
             return null;
         }
