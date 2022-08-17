@@ -4,6 +4,8 @@ namespace resume_mixer.Models.Parser
 {
     public class StackModel
     {
+        public EmployerModel Employer { get; set; }
+        
         public string[] Language { get; set; }
 
         public string[] Stack { get; set; }

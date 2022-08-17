@@ -9,5 +9,9 @@ namespace resume_mixer.Models.Parser
         public string Phone { get; set; }
 
         public string Address { get; set; }
+
+        public string Github { get; set; }
+
+        public string Blog { get; set; }
     }
 }
