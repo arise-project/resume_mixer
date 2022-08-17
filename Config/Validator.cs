@@ -2,7 +2,7 @@ using Microsoft.Extensions.Options;
 
 namespace resume_mixer.Config
 {
-    public class AppOptionsValidator
+    public class Validator
     {
         public bool Validate(IOptions<AppConfiguration> options)
         {
