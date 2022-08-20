@@ -4,12 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using resume_mixer.Config;
-using resume_mixer.Models.Parser;
-using resume_mixer.Renderer;
 
 namespace resume_mixer
 {
-    class Program
+    static class Program
     {
         static void Main(string[] args)
         {
@@ -19,7 +17,7 @@ namespace resume_mixer
             Console.WriteLine("done");
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
+        static IHostBuilder CreateHostBuilder(string[] args) =>
        Host.CreateDefaultBuilder(args)
            .ConfigureHostConfiguration(configuration =>
            {
@@ -31,7 +29,7 @@ namespace resume_mixer
            });
 
 
-        private static void ConfigureServices(IServiceCollection sc)
+        static void ConfigureServices(IServiceCollection sc)
         {
             IServiceProvider sp = sc.BuildServiceProvider();
 
@@ -45,9 +43,9 @@ namespace resume_mixer
             IConfigurationSection appConfigSection = config.GetSection("app");
 
             //sc.AddSingleton<IValidateOptions<AppConfiguration>, AppOptionsValidator>();
-            sc.Configure<AppConfiguration>(appConfigSection);
+            sc.Configure<AppConfig>(appConfigSection);
 
-            var appConfig = sp.GetService<IOptions<AppConfiguration>>();
+            var appConfig = sp.GetService<IOptions<AppConfig>>();
         }
     }
 }

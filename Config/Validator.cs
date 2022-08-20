@@ -4,7 +4,7 @@ namespace resume_mixer.Config
 {
     public class Validator
     {
-        public bool Validate(IOptions<AppConfiguration> options)
+        public bool Validate(IOptions<AppConfig> options)
         {
             return true;
         }

@@ -7,7 +7,7 @@ namespace resume_mixer.Parser
 {
     public class PlatformParser
     {
-        public StackParser(IOptions<AppConfiguration> o)
+        public PlatformParser(IOptions<AppConfig> o)
         {
 
         }

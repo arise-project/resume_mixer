@@ -7,7 +7,7 @@ namespace resume_mixer.Parser
 {
     public class EmployerParser
     {
-        public EmployerParser(IOptions<AppConfiguration> o)
+        public EmployerParser(IOptions<AppConfig> o)
         {
 
         }

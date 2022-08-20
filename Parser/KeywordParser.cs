@@ -7,7 +7,7 @@ namespace resume_mixer.Parser
 {
     public class KeywordParser
     {
-        public KeywordParser(IOptions<AppConfiguration> o)
+        public KeywordParser(IOptions<AppConfig> o)
         {
 
         }
