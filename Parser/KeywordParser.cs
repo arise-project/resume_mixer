@@ -7,9 +7,10 @@ namespace resume_mixer.Parser
 {
     public class KeywordParser
     {
+        readonly AppConfig options;
         public KeywordParser(IOptions<AppConfig> o)
         {
-
+            this.options = o.Value;
         }
 
         public KeywordModel Parse()

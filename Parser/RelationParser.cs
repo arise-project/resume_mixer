@@ -7,9 +7,10 @@ namespace resume_mixer.Parser
 {
     public class RelationParser
     {
+        readonly AppConfig options;
         public RelationParser(IOptions<AppConfig> o)
         {
-
+            this.options = o.Value;
         }
 
         public RelationModel Parse()

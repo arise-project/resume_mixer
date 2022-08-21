@@ -7,9 +7,10 @@ namespace resume_mixer.Parser
 {
     public class ApplicantParser
     {
+        readonly AppConfig options;
         public ApplicantParser(IOptions<AppConfig> o)
         {
-
+            this.options = o.Value;
         }
 
         public ApplicantModel Parse()
