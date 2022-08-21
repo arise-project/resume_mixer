@@ -1,3 +1,4 @@
+using System.IO;
 using Microsoft.Extensions.Options;
 
 namespace resume_mixer.Config
@@ -12,7 +13,12 @@ namespace resume_mixer.Config
 
         public bool Validate()
         {
-            return true;
+            var c = Directory.Exists(options.Commons);
+            var f = !(string.IsNullOrWhiteSpace(options.CompanyId) ||
+            string.IsNullOrWhiteSpace(options.CompanyName));
+            var w = Directory.Exists(options.Worksapace);
+
+            return c && w && f;
         }
     }
 }
