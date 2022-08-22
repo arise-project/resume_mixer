@@ -14,14 +14,14 @@
     <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
   </ItemGroup>
-  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
-    <None Update="agile.md" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="applicant.md" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="description.md" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="emplyer.md" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="keywords.md" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="platform.md" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="relations.md" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="stack.md" CopyToOutputDirectory="PreserveNewest" />
+  <ItemGroup>
+    <None Update="Data\agile.md" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Data\applicant.md" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Data\description.md" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Data\emplyer.md" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Data\keywords.md" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Data\platform.md" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Data\relations.md" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Data\stack.md" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
