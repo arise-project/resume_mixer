@@ -1,7 +1,7 @@
 using System;
 using resume_mixer.Models.Parser;
 
-namespace resume_mixer.Models
+namespace resume_mixer.Models.Renderer
 {
     public class SectionModel
     {
