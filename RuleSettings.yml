@@ -17,10 +17,10 @@ settings:
     description:      key-value
     matches:          line
     relations:        key-list
-    language:         true
-    architecture:     true
+    language:         key-multi-value
+    architecture:     key-multi-value
     stack:            key-list-key
-    technology:       true
-    environment:      true
+    technology:       key-multi-value
+    environment:      key-multi-value
     keywords:         key-multi-value
     platform:         key-multi-value
