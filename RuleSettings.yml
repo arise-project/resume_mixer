@@ -1,0 +1,26 @@
+settings:
+  common: 
+    agile:        true
+    employer:     true
+    description:  true
+    relations:    true
+    language:     true
+    architecture: true
+    stack:        true
+    technology:   true
+    environment:  true
+    keywords:     true
+    platform:     true
+  parser: 
+    agile:            key-multi-value
+    employer:         struct
+    description:      key-value
+    matches:          line
+    relations:        key-list
+    language:         true
+    architecture:     true
+    stack:            key-list-key
+    technology:       true
+    environment:      true
+    keywords:         key-multi-value
+    platform:         key-multi-value

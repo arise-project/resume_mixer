@@ -1,6 +1,3 @@
-#The Most Horrible Parasite: Brain Eating Amoeba
-https://www.olx.ua/d/obyavlenie/nvidia-tesla-m2070-6gb-IDOVQup.html?reason=ip%7Ccf
-
 multi-cultural
 	* Webinerds: Я взаимодействовал с менеджарами из Германии и Саудовских Эмиратов.
 	* Aspose: Разарабатывал приложения совместно с сотрудниками из Казахстана и Азербайджана.
