@@ -1,10 +1,11 @@
-using resume_mixer.Models.Parser;
+using System.Collections.Generic;
 
 namespace resume_mixer.Parser.Base
 {
-    public class StructParser
+    public class StructParser<T>
+    where T : struct
     {
-        public ApplicantModel Parse()
+        public List<T> Parse(string fileName)
         {
             return null;
         }
