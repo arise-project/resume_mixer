@@ -1,4 +1,4 @@
-namespace resume_mixer.Parser
+namespace resume_mixer.Config
 {
     public enum ParserType
     {
