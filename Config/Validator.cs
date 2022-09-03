@@ -8,7 +8,7 @@ namespace resume_mixer.Config
         readonly AppConfig options;
         public Validator(IOptions<AppConfig> o)
         {
-            this.options = o.Value;
+            options = o.Value;
         }
 
         public bool Validate()

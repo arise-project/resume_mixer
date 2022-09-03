@@ -11,7 +11,7 @@ namespace resume_mixer.Parser
         readonly AppConfig options;
         public DescriptionParser(IOptions<AppConfig> o)
         {
-            this.options = o.Value;
+            options = o.Value;
         }
 
         public List<DescriptionModel> Parse()
