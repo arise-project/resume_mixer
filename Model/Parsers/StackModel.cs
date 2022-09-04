@@ -2,7 +2,7 @@ using System;
 
 namespace resume_mixer.Models.Parser
 {
-    public class StackModel
+    public struct StackModel
     {
         public EmployerModel Employer { get; set; }
 

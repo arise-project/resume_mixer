@@ -4,6 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using resume_mixer.Config;
+using resume_mixer.Parser.Base;
+using resume_mixer.Parser.Base.Interface;
+using resume_mixer.Models.Parser;
 
 namespace resume_mixer
 {
@@ -19,9 +22,9 @@ namespace resume_mixer
 
         static IHostBuilder CreateHostBuilder(string[] args) =>
        Host.CreateDefaultBuilder(args)
-           .ConfigureHostConfiguration(configuration =>
+           .ConfigureHostConfiguration(config =>
            {
-               configuration.AddEnvironmentVariables();
+               config.AddEnvironmentVariables();
            })
            .ConfigureServices((hostContext, services) =>
            {
@@ -44,6 +47,13 @@ namespace resume_mixer
 
             //sc.AddSingleton<IValidateOptions<AppConfiguration>, AppOptionsValidator>();
             sc.Configure<AppConfig>(appConfigSection);
+            
+            sc.AddSingleton<IKeyListKeyParser, KeyListKeyParser>();
+            sc.AddSingleton<IKeyListParser, KeyListParser>();
+            sc.AddSingleton<IKeyMultiValueParser, KeyMultiValueParser>();
+            sc.AddSingleton<IKeyValueParser, KeyValueParser>();
+            sc.AddSingleton<ILineParser, LineParser>();
+            sc.AddSingleton<IStructParser<EmployerModel>, StructParser<EmployerModel>>();
 
             var appConfig = sp.GetService<IOptions<AppConfig>>();
         }

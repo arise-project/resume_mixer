@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-namespace resume_mixer.Parser.Base
+namespace resume_mixer.Parser.Base.Interface
 {
     public interface IKeyListParser
     {
