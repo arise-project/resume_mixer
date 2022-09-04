@@ -9,6 +9,10 @@ using resume_mixer.Parser.Base.Interface;
 using resume_mixer.Models.Parser;
 using resume_mixer.Parser.Iterface;
 using resume_mixer.Parser;
+using resume_mixer.Renderer.Interface;
+using resume_mixer.Renderer;
+using resume_mixer.Unit.Interface;
+using resume_mixer.Unit;
 
 namespace resume_mixer
 {
@@ -64,6 +68,12 @@ namespace resume_mixer
             sc.AddSingleton<IPlatformParser, PlatformParser>();
             sc.AddSingleton<IRelationParser, RelationParser>();
             sc.AddSingleton<IStackParser, StackParser>();
+
+            sc.AddSingleton<IAssemblyRenderer, AssemblyRenderer>();
+            sc.AddSingleton<ISectionRenderer, SectionRenderer>();
+
+            sc.AddSingleton<IParsingScenarioUnit, ParsingScenarioUnit>();
+            sc.AddSingleton<IRendererScenarioUnit, RendererScenarioUnit>();
 
             var appConfig = sp.GetService<IOptions<AppConfig>>();
         }

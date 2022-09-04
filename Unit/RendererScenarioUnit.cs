@@ -1,9 +1,10 @@
 using Microsoft.Extensions.Options;
 using resume_mixer.Config;
+using resume_mixer.Unit.Interface;
 
 namespace resume_mixer.Unit
 {
-    public class RendererScenarioUnit
+    public class RendererScenarioUnit : IRendererScenarioUnit
     {
         readonly AppConfig options;
         readonly Settings settings;
