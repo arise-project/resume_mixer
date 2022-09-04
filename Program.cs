@@ -7,6 +7,8 @@ using resume_mixer.Config;
 using resume_mixer.Parser.Base;
 using resume_mixer.Parser.Base.Interface;
 using resume_mixer.Models.Parser;
+using resume_mixer.Parser.Iterface;
+using resume_mixer.Parser;
 
 namespace resume_mixer
 {
@@ -54,6 +56,14 @@ namespace resume_mixer
             sc.AddSingleton<IKeyValueParser, KeyValueParser>();
             sc.AddSingleton<ILineParser, LineParser>();
             sc.AddSingleton<IStructParser<EmployerModel>, StructParser<EmployerModel>>();
+
+            sc.AddSingleton<IApplicantParser, ApplicantParser>();
+            sc.AddSingleton<IDescriptionParser, DescriptionParser>();
+            sc.AddSingleton<IEmployerParser, EmployerParser>();
+            sc.AddSingleton<IKeywordParser, KeywordParser>();
+            sc.AddSingleton<IPlatformParser, PlatformParser>();
+            sc.AddSingleton<IRelationParser, RelationParser>();
+            sc.AddSingleton<IStackParser, StackParser>();
 
             var appConfig = sp.GetService<IOptions<AppConfig>>();
         }
