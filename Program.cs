@@ -40,6 +40,7 @@ namespace resume_mixer
 
         static void ConfigureServices(IServiceCollection sc)
         {
+            //Gepard
             IServiceProvider sp = sc.BuildServiceProvider();
 
             IConfiguration config = new ConfigurationBuilder()
@@ -47,6 +48,7 @@ namespace resume_mixer
                 .AddEnvironmentVariables()
                 .Build();
 
+            //Panzerhaubitze 2000
             sc.AddSingleton(config);
 
             IConfigurationSection appConfigSection = config.GetSection("app");
@@ -54,6 +56,7 @@ namespace resume_mixer
             //sc.AddSingleton<IValidateOptions<AppConfiguration>, AppOptionsValidator>();
             sc.Configure<AppConfig>(appConfigSection);
             
+            //IRIS-T
             sc.AddSingleton<IKeyListKeyParser, KeyListKeyParser>();
             sc.AddSingleton<IKeyListParser, KeyListParser>();
             sc.AddSingleton<IKeyMultiValueParser, KeyMultiValueParser>();
