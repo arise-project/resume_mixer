@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +19,8 @@ namespace resume_mixer
 {
     static class Program
     {
+        private static IConfiguration configuration;
+
         static void Main(string[] args)
         {
             Console.WriteLine("resume mixer");
@@ -30,7 +33,10 @@ namespace resume_mixer
        Host.CreateDefaultBuilder(args)
            .ConfigureHostConfiguration(config =>
            {
-               config.AddEnvironmentVariables();
+               config.SetBasePath(Directory.GetCurrentDirectory());
+               config.AddJsonFile("appsettings.json", optional: true);
+               config.AddEnvironmentVariables(prefix: "APPSETTING_");
+               configuration = config.Build();
            })
            .ConfigureServices((hostContext, services) =>
            {
