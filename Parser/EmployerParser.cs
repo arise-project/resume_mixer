@@ -17,6 +17,7 @@ namespace resume_mixer.Parser
 
         public List<EmployerModel> Parse()
         {
+            //struct
             return null;
         }
     }

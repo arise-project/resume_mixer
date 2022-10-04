@@ -17,6 +17,7 @@ namespace resume_mixer.Parser
 
         public List<DescriptionModel> Parse()
         {
+            //key-value
             return null;
         }
     }
