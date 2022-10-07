@@ -1,4 +1,5 @@
 obj
 bin
 .vs/
-.idea/
+.idea/bin
+/.idea/.idea.resume_mixer.dir/.idea

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Text.Json;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
@@ -13,11 +15,15 @@ using resume_mixer.Renderer.Interface;
 using resume_mixer.Renderer;
 using resume_mixer.Unit.Interface;
 using resume_mixer.Unit;
+using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
 
 namespace resume_mixer
 {
     static class Program
     {
+        private static IConfiguration configuration;
+
         static void Main(string[] args)
         {
             Console.WriteLine("resume mixer");
@@ -30,7 +36,10 @@ namespace resume_mixer
        Host.CreateDefaultBuilder(args)
            .ConfigureHostConfiguration(config =>
            {
-               config.AddEnvironmentVariables();
+               config.SetBasePath(Directory.GetCurrentDirectory());
+               config.AddJsonFile("appsettings.json", optional: true);
+               config.AddEnvironmentVariables(prefix: "APPSETTING_");
+               configuration = config.Build();
            })
            .ConfigureServices((hostContext, services) =>
            {
@@ -79,6 +88,26 @@ namespace resume_mixer
             sc.AddSingleton<IRendererScenarioUnit, RendererScenarioUnit>();
 
             var appConfig = sp.GetService<IOptions<AppConfig>>();
+            Console.WriteLine(JsonSerializer.Serialize(appConfig) );
+
+            var s = BuildSettings();
+            sc.AddSingleton((f) => s);
+        }
+
+        private static Settings BuildSettings()
+        {
+            string text = File.ReadAllText(@"RuleSettings.yml");
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("Rule Settings:");
+            Console.WriteLine(text);
+            Console.WriteLine("----------------------------------");
+            var deserializer = new DeserializerBuilder()
+                .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                .Build();
+            
+            var settings  = deserializer.Deserialize<Settings>(text);
+            Console.WriteLine(JsonSerializer.Serialize(settings) );
+            return settings;
         }
     }
 }

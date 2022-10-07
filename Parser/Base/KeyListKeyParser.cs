@@ -1,3 +1,5 @@
+using System.IO;
+using System.Linq;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,6 +11,8 @@ namespace resume_mixer.Parser.Base
     {
         const char delimiterKey = ':';
         const char delimiterValue = ',';
+        const char delimiterKey = ':';
+        const char delimiterValue = ':';
 
         public Dictionary<string, Dictionary<string, List<string>>> Parse(string fileName)
         {
