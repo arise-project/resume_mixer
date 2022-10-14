@@ -11,8 +11,6 @@ namespace resume_mixer.Parser.Base
     {
         const char delimiterKey = ':';
         const char delimiterValue = ',';
-        const char delimiterKey = ':';
-        const char delimiterValue = ':';
 
         public Dictionary<string, Dictionary<string, List<string>>> Parse(string fileName)
         {
@@ -43,7 +41,7 @@ namespace resume_mixer.Parser.Base
                         }
 
                         subkey = line.Trim().TrimEnd(delimiterKey);
-                        list = line.Substring(line.IndexOf(delimiterKey))
+                        list = line[line.IndexOf(delimiterKey)..]
                                 .Split(delimiterValue)
                                 .ToList();
                     }
@@ -51,7 +49,7 @@ namespace resume_mixer.Parser.Base
                 else
                 {
                     list = list.Union(
-                                    line.Substring(line.IndexOf(delimiterKey))
+                                    line[line.IndexOf(delimiterKey)..]
                                     .Split(delimiterValue))
                                .ToList();
                 }

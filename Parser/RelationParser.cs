@@ -20,5 +20,10 @@ namespace resume_mixer.Parser
             //key-list
             return null;
         }
+
+        public void Parse(string fileName)
+        {
+
+        }
     }
 }

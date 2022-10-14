@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace resume_mixer.Parser.Iterface
 {
-    public interface IStackParser : IFileParser
+    public interface IFileParser
     {
-        List<StackModel> Parse();
+        void Parse(string fileName);
     }
 }

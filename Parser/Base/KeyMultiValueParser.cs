@@ -25,14 +25,14 @@ namespace resume_mixer.Parser.Base
                         res.Add(key, list);
                     }
                     key = line.Trim().TrimEnd(delimiterKey);
-                    list = line.Substring(line.IndexOf(delimiterKey))
+                    list = line[line.IndexOf(delimiterKey)..]
                                 .Split(delimiterValue)
                                 .ToList();
                 }
                 else
                 {
                     list = list.Union(
-                                    line.Substring(line.IndexOf(delimiterKey))
+                                    line[line.IndexOf(delimiterKey)..]
                                     .Split(delimiterValue))
                                .ToList();
                 }

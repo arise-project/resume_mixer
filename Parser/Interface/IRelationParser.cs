@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace resume_mixer.Parser.Iterface
 {
-    public interface IRelationParser
+    public interface IRelationParser : IFileParser
     {
         List<RelationModel> Parse();
     }

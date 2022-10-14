@@ -20,5 +20,10 @@ namespace resume_mixer.Parser
             //struct
             return null;
         }
+
+        public void Parse(string fileName)
+        {
+
+        }
     }
 }
