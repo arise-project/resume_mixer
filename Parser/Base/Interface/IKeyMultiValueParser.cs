@@ -4,6 +4,6 @@ namespace resume_mixer.Parser.Base.Interface
 {
     public interface IKeyMultiValueParser
     {
-        public Dictionary<string, List<string>> Parse();
+        public Dictionary<string, List<string>> Parse(string fileName);
     }
 }

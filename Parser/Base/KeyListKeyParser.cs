@@ -1,6 +1,8 @@
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using resume_mixer.Parser.Base.Interface;
 
 namespace resume_mixer.Parser.Base
@@ -8,50 +10,57 @@ namespace resume_mixer.Parser.Base
     public class KeyListKeyParser : IKeyListKeyParser
     {
         const char delimiterKey = ':';
+        const char delimiterValue = ',';
+        const char delimiterKey = ':';
         const char delimiterValue = ':';
 
-        public Dictionary<string, Dictionary<string, string>> Parse(string fileName)
+        public Dictionary<string, Dictionary<string, List<string>>> Parse(string fileName)
         {
-            var res = new Dictionary<string, Dictionary<string, string>>();
-            // var text = File.ReadAllLines(fileName).Where(l => !string.IsNullOrWhiteSpace(l));
-            // var key = "";
-            // var list = new Dictionary<string,string>();
-            // foreach (var line in text)
-            // {
-            //     if(line.Contains(delimiterKey))
-            //     {
-            //         if(!string.IsNullOrWhiteSpace(key))
-            //         {
-            //             if(res.ContainsKey(key))
-            //             {
-            //                 res[key].AddRange(list);
-            //             }
-            //             else
-            //             {
-            //                 res.Add(key,list);
-            //             }
-            //         }
-            //         var split = line.Split(delimiterKey);
-            //         key = split[0];
-            //         list = new List<string>();
-            //         list.AddRange(split[1].Split(delimiterValue));
-            //     }
-            //     else
-            //     {
-            //         list.AddRange(line.Split(delimiterValue));
-            //     }
-            // }
-            // if(!string.IsNullOrWhiteSpace(key))
-            // {
-            //     if(res.ContainsKey(key))
-            //     {
-            //         res[key].AddRange(list);
-            //     }
-            //     else
-            //     {
-            //         res.Add(key,list);
-            //     }
-            // }
+            var res = new Dictionary<string, Dictionary<string, List<string>>>();
+            var text = File.ReadAllLines(fileName).Where(l => !string.IsNullOrWhiteSpace(l));
+            string key = "", subkey = "";
+            var sub = new Dictionary<string, List<string>>();
+            List<string> list = null;
+            foreach (var line in text)
+            {
+                if(line.Contains(delimiterKey))
+                {
+                    if (line.TrimStart() == line)
+                    {
+                        if (!string.IsNullOrEmpty(key))
+                        {
+                            res.Add(key, sub);
+                        }
+                        key = line.Trim().TrimEnd(delimiterKey);
+                        sub = new Dictionary<string, List<string>>();
+                    }
+                    else
+                    {
+                        if (!string.IsNullOrEmpty(subkey))
+                        {
+                            sub.Add(subkey, list);
+                            res[key].Add(subkey, list);
+                        }
+
+                        subkey = line.Trim().TrimEnd(delimiterKey);
+                        list = line.Substring(line.IndexOf(delimiterKey))
+                                .Split(delimiterValue)
+                                .ToList();
+                    }
+                }
+                else
+                {
+                    list = list.Union(
+                                    line.Substring(line.IndexOf(delimiterKey))
+                                    .Split(delimiterValue))
+                               .ToList();
+                }
+            }
+
+            if (!res[key].ContainsKey(subkey))
+            {
+                res[key].Add(subkey, list);
+            }
 
             return res;
         }
