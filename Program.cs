@@ -92,6 +92,8 @@ namespace resume_mixer
 
             var s = BuildSettings();
             sc.AddSingleton((f) => s);
+
+            sc.AddHostedService<Worker>();
         }
 
         private static Settings BuildSettings()
