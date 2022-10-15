@@ -4,15 +4,21 @@ using Microsoft.Extensions.Options;
 using resume_mixer.Config;
 using System.Collections.Generic;
 using resume_mixer.Parser.Iterface;
+using resume_mixer.Parser.Base.Interface;
 
 namespace resume_mixer.Parser
 {
     public class RelationParser : IRelationParser
     {
         readonly AppConfig options;
-        public RelationParser(IOptions<AppConfig> o)
+        private readonly IKeyListParser parser;
+
+        public RelationParser(
+            IOptions<AppConfig> o,
+            IKeyListParser parser)
         {
             options = o.Value;
+            this.parser = parser;
         }
 
         public List<RelationModel> Parse()
@@ -21,7 +27,7 @@ namespace resume_mixer.Parser
             return null;
         }
 
-        public void Parse(string fileName)
+        public void Assign(string fileName)
         {
 
         }

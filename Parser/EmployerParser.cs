@@ -4,15 +4,21 @@ using Microsoft.Extensions.Options;
 using resume_mixer.Config;
 using System.Collections.Generic;
 using resume_mixer.Parser.Iterface;
+using resume_mixer.Parser.Base.Interface;
 
 namespace resume_mixer.Parser
 {
     public class EmployerParser : IEmployerParser
     {
         readonly AppConfig options;
-        public EmployerParser(IOptions<AppConfig> o)
+        private readonly IStructParser<EmployerModel> parser;
+
+        public EmployerParser(
+            IOptions<AppConfig> o,
+            IStructParser<EmployerModel> parser)
         {
             options = o.Value;
+            this.parser = parser;
         }
 
         public List<EmployerModel> Parse()
@@ -21,7 +27,7 @@ namespace resume_mixer.Parser
             return null;
         }
 
-        public void Parse(string fileName)
+        public void Assign(string fileName)
         {
 
         }

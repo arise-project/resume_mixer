@@ -5,6 +5,6 @@ namespace resume_mixer.Parser.Iterface
 {
     public interface IFileParser
     {
-        void Parse(string fileName);
+        void Assign(string fileName);
     }
 }
