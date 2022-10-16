@@ -9,8 +9,8 @@ settings:
     stack:        true
     technology:   true
     environment:  true
-    keywords:     true
-    platform:     true
+    keywords:     keywords.md
+    platform:     platform.md
   parser: 
     agile:            key-multi-value
     employer:         struct
@@ -22,5 +22,17 @@ settings:
     stack:            key-list-key
     technology:       key-multi-value
     environment:      key-multi-value
-    keywords:         key-multi-value
-    platform:         key-multi-value
+    keywords:         key-multi-vkeywords.md
+    platform:         key-multi-vplatform.md
+  data-file: 
+    agile:        agile.md
+    employer:     employer.md
+    description:  description.md
+    relations:    relations.md
+    language:     language.md
+    architecture: architecture.md
+    stack:        stack.md
+    technology:   technology.md
+    environment:  environment.md
+    keywords:     keywords.md
+    platform:     platform.md

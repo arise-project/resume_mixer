@@ -67,7 +67,7 @@ namespace resume_mixer.Unit
             //M982 Excalibur
             foreach(var parser in parsers)
             {
-                //parser.Parse();
+                parser.Assign();
             }
         }
     }
