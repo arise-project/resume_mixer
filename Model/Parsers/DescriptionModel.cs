@@ -6,7 +6,6 @@ namespace resume_mixer.Models.Parser
     {
         //Mars ІІ
         public EmployerModel Employer { get; set; }
-
         public string Common { get; set; }
     }
 }

@@ -35,10 +35,12 @@ namespace resume_mixer.Unit
             if(settings.Parser.Description)
             {
                 parsers.Add(descriptionParser);
+                descriptionParser.Assign(s.DataFile.Description);
             }
             if(settings.Parser.Employer)
             {
                 parsers.Add(employerParser);
+                employerParser.Assign(s.DataFile.Employer);
             }
             if(settings.Parser.Environment)
             {
@@ -51,10 +53,12 @@ namespace resume_mixer.Unit
             if(settings.Parser.Relations)
             {
                 parsers.Add(relationParser);
+                relationParser.Assign(s.DataFile.Relations);
             }
             if(settings.Parser.Stack)
             {
                 parsers.Add(stackParser);
+                stackParser.Assign(s.DataFile.Stack);
             }
             if(settings.Parser.Technology)
             {
@@ -65,9 +69,9 @@ namespace resume_mixer.Unit
         public void Run()
         {
             //M982 Excalibur
-            foreach(var parser in parsers)
+            foreach(IFileParser parser in parsers)
             {
-                parser.Assign();
+                
             }
         }
     }

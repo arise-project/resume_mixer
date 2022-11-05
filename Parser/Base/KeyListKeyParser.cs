@@ -1,8 +1,6 @@
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using resume_mixer.Parser.Base.Interface;
 
 namespace resume_mixer.Parser.Base
