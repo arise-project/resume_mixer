@@ -21,13 +21,13 @@ The CV Generator Console App is a prototype application written in C# to automat
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/cv-generator-console-app.git
+    git clone https://github.com/arise-project/resume_mixer.git
     ```
 
 2. **Navigate to the project directory:**
 
     ```bash
-    cd cv-generator-console-app
+    cd resume_mixer
     ```
 
 3. **Build the App:**
